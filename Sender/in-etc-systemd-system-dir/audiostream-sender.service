@@ -1,0 +1,15 @@
+[Unit]
+Description=Vinyl Audio Stream Sender (with silence detection)
+After=network.target sound.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/sender.sh
+Restart=on-failure
+RestartSec=5
+User=iot
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

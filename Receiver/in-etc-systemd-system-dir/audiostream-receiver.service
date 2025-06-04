@@ -1,0 +1,15 @@
+[Unit]
+Description=Vinyl Audio Stream Receiver (Netcat + Aplay)
+After=network.target sound.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/receiver.sh
+Restart=always
+RestartSec=2
+User=iot
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

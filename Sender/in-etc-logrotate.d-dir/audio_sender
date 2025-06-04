@@ -1,0 +1,8 @@
+/var/log/audio_sender.log {
+    size 100M
+    rotate 5
+    compress
+    missingok
+    notifempty
+    copytruncate
+}
