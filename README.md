@@ -18,6 +18,7 @@ Install dependencies:
 ~~~
 
 Create the file ~/.asoundrc, with this contents (this avoids sharing errors with the device):
+~~~
 pcm.dsnooper {
     type dsnoop
     ipc_key 1024
@@ -27,7 +28,7 @@ pcm.dsnooper {
         rate 44100
     }
 }
-
+~~~
 
 Start daemon:
 ~~~
