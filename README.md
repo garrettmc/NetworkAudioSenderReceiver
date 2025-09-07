@@ -17,11 +17,24 @@ Install dependencies:
   sudo apt install ffmpeg sox alsa-utils pulseaudio netcat-openbsd mbuffer
 ~~~
 
+Create the file ~/.asoundrc, with this contents (this avoids sharing errors with the device):
+pcm.dsnooper {
+    type dsnoop
+    ipc_key 1024
+    slave {
+        pcm "hw:2,0"
+        channels 2
+        rate 44100
+    }
+}
+
+
 Start daemon:
 ~~~
 chmod +x /usr/local/bin/receiver.sh
 sudo systemctl enable audiostream-sender
 sudo systemctl start audiostream-sender
+
 ~~~
 
 # Receiver
